@@ -1,0 +1,9 @@
+{
+  "name": "todoapp",
+  "private": true,
+  "scripts": {
+    "start": "node server/server.js",
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server start"
+  }
+}
