@@ -33,6 +33,15 @@ cp server/.env.example server/.env
 
 Edit the new `.env` file to configure your MongoDB connection and port.
 
+Create a `.env` file inside the `client` directory based on `.env.example`:
+
+```bash
+cp client/.env.example client/.env
+```
+
+In this file you can set `VITE_API_URL` to the URL of the API server. The
+default is `http://localhost:5000`.
+
 ### Running the App
 
 Start the client and server in development mode with a single command:
