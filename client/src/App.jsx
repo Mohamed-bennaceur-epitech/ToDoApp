@@ -6,8 +6,10 @@ import './App.css';
 function App() {
   const [todos, setTodos] = useState([]);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const fetchTodos = async () => {
-    const res = await fetch('http://localhost:5000/api/todos');
+    const res = await fetch(`${API_URL}/api/todos`);
     const data = await res.json();
     setTodos(data);
   };
@@ -17,7 +19,7 @@ function App() {
   }, []);
 
   const addTodo = async (text) => {
-    const res = await fetch('http://localhost:5000/api/todos', {
+    const res = await fetch(`${API_URL}/api/todos`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text }),
@@ -27,7 +29,7 @@ function App() {
   };
 
   const toggleTodo = async (id) => {
-    const res = await fetch(`http://localhost:5000/api/todos/${id}`, {
+    const res = await fetch(`${API_URL}/api/todos/${id}`, {
       method: 'PUT',
     });
     const updated = await res.json();
@@ -35,7 +37,7 @@ function App() {
   };
 
   const deleteTodo = async (id) => {
-    await fetch(`http://localhost:5000/api/todos/${id}`, {
+    await fetch(`${API_URL}/api/todos/${id}`, {
       method: 'DELETE',
     });
     setTodos(todos.filter(t => t._id !== id));
