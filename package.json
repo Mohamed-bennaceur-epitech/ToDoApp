@@ -4,6 +4,10 @@
   "scripts": {
     "start": "node server/server.js",
     "client": "npm --prefix client run dev",
-    "server": "npm --prefix server start"
+    "server": "npm --prefix server start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
   }
 }
